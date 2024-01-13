@@ -21,13 +21,13 @@ def get_pdf_text(pdf_docs):
     return text
 
 def get_text_chunks(text):
-    text_splitter = CharacterTextSplitter(seprator="\n", chunk_size = 1000,chunk_overlap=200, length_function=len) #chunk_size = 1000 characters, chukn_overlap = take previous 200 characters to not lose meaning of current phrase
+    text_splitter = CharacterTextSplitter(separator="\n", chunk_size = 1000,chunk_overlap=200, length_function=len) #chunk_size = 1000 characters, chukn_overlap = take previous 200 characters to not lose meaning of current phrase
     chunks = text_splitter.split_text(text)
     return chunks
 
 def get_vector_store(text_chunks):
-    #embeddings = OpenAIEmbeddings()
-    embeddings = HuggingFaceInstructEmbeddings(model_name ="hkunlp/instructor-xl")
+    embeddings = OpenAIEmbeddings()
+    #embeddings = HuggingFaceInstructEmbeddings(model_name ="hkunlp/instructor-xl")
     #creating database, generate from text
     vectorstore = FAISS.from_texts(texts = text_chunks, embedding = embeddings)
     return vectorstore
