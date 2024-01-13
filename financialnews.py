@@ -82,3 +82,5 @@ def main():
     st.session_state.conversation
 if __name__ == '__main__':
     main()
+
+#credit, courtesy: Alejandro AO
