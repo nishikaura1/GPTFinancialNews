@@ -186,5 +186,5 @@ context = torch.zeros((1,1), dtype=torch.long, device=None)
 print(decode(m.generate(context, max_new_tokens=500)[0].tolist()))
 
 
-
+#courtesy, credit: Andrej Karpathy
 
